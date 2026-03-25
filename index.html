@@ -62,9 +62,10 @@ body::before {
 }
 .left-bg {
   position: absolute; inset: 0; z-index: 0;
-  background-image: url('pyxis-bg.jpg');  /* ← 파일명만 바꾸면 됨 */
-  background-size: cover;
-  background-position: center;
+  background-image: url('pyxis-bg.jpg');
+  background-size: contain;        /* ← cover → contain 으로 변경 */
+  background-repeat: no-repeat;
+  background-position: center top; /* ← 위쪽 기준으로 정렬 */
   opacity: 0.45;
 }
 .left-bg::after {
@@ -72,9 +73,9 @@ body::before {
   position: absolute; inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10,14,22,0.1) 0%,
-    rgba(10,14,22,0.4) 50%,
-    rgba(10,14,22,0.96) 100%
+    rgba(10,14,22,0) 0%,       /* 위는 투명 */
+    rgba(10,14,22,0.6) 55%,
+    rgba(10,14,22,1) 80%       /* 아래는 완전 검정 */
   );
 }
 /* Camera silhouette decoration */
