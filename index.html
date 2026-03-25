@@ -110,7 +110,7 @@ body::before {
 .left-title-models {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(64px, 6.5vw, 96px);
-  color: rgba(255,255,255,255);
+  color: rgba(255,255,255,0.45);
   display: inline;
   letter-spacing: 3px;
   font-weight: 700;
@@ -118,7 +118,7 @@ body::before {
 }
 
 .left-desc {
-  font-size: 16px; color: rgba(255,255,255,1);
+  font-size: 16px; color: rgba(255,255,255,0.55);
   line-height: 1.8; font-weight: 300;
   max-width: 380px; margin-bottom: 40px; margin-top: 24px;
 }
@@ -131,7 +131,7 @@ body::before {
 .meta-row-label { color: rgba(255,255,255,0.45); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; flex-shrink: 0; padding-top: 2px; }
 .meta-row-value { color: #ffffff; font-weight: 500; text-align: right; }
 .meta-row-value.accent { color: var(--accent); }
-.meta-row-value small { display: block; font-size: 15px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 2px; }
+.meta-row-value small { display: block; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 2px; }
 .meta-row-value .session-badge {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 12px; padding: 2px 8px;
@@ -286,7 +286,16 @@ select option { background: #1c1c1f; }
 .benefit-icon { color: var(--accent); font-size: 11px; flex-shrink: 0; padding-top: 3px; }
 .benefit-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
 .benefit-sub { font-size: 13px; color: var(--text2); line-height: 1.5; }
-.benefit-tag {
+.benefit-item--raffle {
+  margin-top: 6px;
+  border-top: 1px solid rgba(243,146,0,0.15) !important;
+  border-bottom: none !important;
+  background: rgba(243,146,0,0.05);
+  border-radius: 3px;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+.benefit-item--raffle .benefit-name { color: var(--accent); }
   display: inline-block; font-size: 11px; padding: 1px 7px;
   background: rgba(243,146,0,0.12); border: 1px solid rgba(243,146,0,0.3);
   color: var(--accent); border-radius: 2px; margin-left: 4px; font-weight: 600;
@@ -399,7 +408,7 @@ select option { background: #1c1c1f; }
 
     <div class="left-footer">
       Blackmagic Design 공식 총판 · 하이픽셀플러스<br>
-      문의: hipixelplus@naver.com / 031-450-3515
+      문의: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91f9f8e1f8e9f4fde1fde4e2d1fff0e7f4e3bff2fefc">[email&#160;protected]</a> / 031-450-3515
     </div>
   </div>
 
@@ -415,7 +424,7 @@ select option { background: #1c1c1f; }
       <div class="notice">
         <div class="notice-item">
           <div class="notice-dot"></div>
-          <span>세미나 당일 직접 촬영한 Blackmagic RAW 원본 영상은 <strong style="color:var(--accent)">Blackmagic Cloud</strong>를 통해 참가자 전원에게 제공됩니다.<br>집에서도 DaVinci Resolve로 자유롭게 실습해 보세요!</span>
+          <span>세미나 당일 직접 촬영한 BRAW 원본 영상은 <strong style="color:var(--accent)">Blackmagic Cloud</strong>를 통해 참가자 전원에게 제공됩니다.<br>집에서도 DaVinci Resolve로 자유롭게 실습해 보세요!</span>
         </div>
         <div class="notice-item">
           <div class="notice-dot"></div>
@@ -449,6 +458,13 @@ select option { background: #1c1c1f; }
           <div>
             <div class="benefit-name">Blackmagic PYXIS 12K 현장 예약 할인 판매</div>
             <div class="benefit-sub">L마운트 / EF마운트 / PL마운트 선택 · 포토 리뷰 시 CFexpress 256GB B타입 증정</div>
+          </div>
+        </div>
+        <div class="benefit-item benefit-item--raffle">
+          <div class="benefit-icon">🎁</div>
+          <div>
+            <div class="benefit-name">SLR렌탈 상품권 <span class="benefit-tag">10만원</span></div>
+            <div class="benefit-sub">타임당 1명 추첨 · 세미나 종료 후 현장 증정</div>
           </div>
         </div>
       </div>
@@ -552,7 +568,7 @@ select option { background: #1c1c1f; }
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1q7_h_ffAAKak-sUmKqQdiEhw_lfuMoNeIePV74pIDPoqWraat2XB7U7s2a0OYiRn/exec';
 
   // 전화번호 하이픈 자동 포맷: 010-0000-0000
@@ -627,10 +643,4 @@ select option { background: #1c1c1f; }
     const form = document.getElementById('form-body');
     form.style.transition = 'transform .08s';
     form.style.transform = 'translateX(-6px)';
-    setTimeout(() => { form.style.transform = 'translateX(5px)';  }, 80);
-    setTimeout(() => { form.style.transform = 'translateX(-4px)'; }, 160);
-    setTimeout(() => { form.style.transform = 'translateX(0)';    }, 240);
-  }
-</script>
-</body>
-</html>
+    setTimeout(() => {
