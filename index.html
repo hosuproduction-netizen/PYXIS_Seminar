@@ -63,9 +63,9 @@ body::before {
 .left-bg {
   position: absolute; inset: 0; z-index: 0;
   background-image: url('pyxis-bg.jpg');
-  background-size: contain;        /* ← cover → contain 으로 변경 */
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center top; /* ← 위쪽 기준으로 정렬 */
+  background-position: center top;
   opacity: 0.45;
 }
 .left-bg::after {
@@ -73,29 +73,17 @@ body::before {
   position: absolute; inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10,14,22,0) 0%,       /* 위는 투명 */
+    rgba(10,14,22,0) 0%,
     rgba(10,14,22,0.6) 55%,
-    rgba(10,14,22,1) 80%       /* 아래는 완전 검정 */
+    rgba(10,14,22,1) 80%
   );
 }
-/* Camera silhouette decoration */
-.cam-deco {
-  position: absolute;
-  right: -30px; top: 30px;
-  z-index: 0;
-  opacity: 0.055;
-  pointer-events: none;
-}
-.left > *:not(.left-bg):not(.cam-deco):not(.deco-ring) { position: relative; z-index: 1; }
+.left > *:not(.left-bg):not(.deco-ring) { position: relative; z-index: 1; }
 
 .left-inner { display: flex; flex-direction: column; gap: 0; }
 
-.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 72px; }
-.brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.brand-name { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text2); }
-
 .left-tag {
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--accent); margin-bottom: 20px;
   display: flex; align-items: center; gap: 10px;
 }
@@ -113,15 +101,16 @@ body::before {
   color: var(--text); margin-bottom: 6px;
 }
 .left-title .sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(22px, 2.2vw, 32px);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(13px, 1.3vw, 17px);
   color: var(--accent); display: block;
-  letter-spacing: 2px; margin-top: 6px; line-height: 1;
+  letter-spacing: 0px; margin-top: 14px; line-height: 1.5;
+  font-weight: 400;
 }
 .left-title-models {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(64px, 6.5vw, 96px);
-  color: rgba(255,255,255,255);
+  color: rgba(255,255,255,0.45);
   display: inline;
   letter-spacing: 3px;
   font-weight: 700;
@@ -129,20 +118,20 @@ body::before {
 }
 
 .left-desc {
-  font-size: 14px; color: rgba(255,255,255,0.55);
+  font-size: 16px; color: rgba(255,255,255,0.55);
   line-height: 1.8; font-weight: 300;
-  max-width: 360px; margin-bottom: 40px; margin-top: 24px;
+  max-width: 380px; margin-bottom: 40px; margin-top: 24px;
 }
 
 .meta-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); }
 .meta-row {
   display: flex; justify-content: space-between; align-items: flex-start;
-  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 14px; gap: 16px;
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; gap: 16px;
 }
-.meta-row-label { color: rgba(255,255,255,0.45); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; flex-shrink: 0; padding-top: 2px; }
+.meta-row-label { color: rgba(255,255,255,0.45); font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; flex-shrink: 0; padding-top: 2px; }
 .meta-row-value { color: #ffffff; font-weight: 500; text-align: right; }
 .meta-row-value.accent { color: var(--accent); }
-.meta-row-value small { display: block; font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 2px; }
+.meta-row-value small { display: block; font-size: 12px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 2px; }
 .meta-row-value .session-badge {
   display: inline-flex; align-items: center; gap: 6px;
   font-size: 12px; padding: 2px 8px;
@@ -151,7 +140,7 @@ body::before {
   font-weight: 500; margin-bottom: 4px;
 }
 
-.left-footer { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+.left-footer { font-size: 15px; color: rgba(255,255,255,0.4); line-height: 1.6; }
 .left-footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
 .left-footer a:hover { color: rgba(255,255,255,0.7); }
 
@@ -173,8 +162,8 @@ body::before {
 }
 
 .form-header { margin-bottom: 32px; }
-.form-header h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.3px; }
-.form-header p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+.form-header h2 { font-size: 26px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.3px; }
+.form-header p { font-size: 16px; color: var(--text2); line-height: 1.65; }
 
 /* ── FIELDS ── */
 .field { margin-bottom: 20px; }
@@ -206,65 +195,35 @@ select option { background: #1c1c1f; }
 .req { color: var(--accent); margin-left: 3px; }
 
 /* ── TIME TOGGLE ── */
-.time-options {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-}
-.time-option {
-  position: relative;
-}
-.time-option input[type=radio] {
-  position: absolute; opacity: 0; width: 0; height: 0;
-}
+.time-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.time-option { position: relative; }
+.time-option input[type=radio] { position: absolute; opacity: 0; width: 0; height: 0; }
 .time-option label {
   display: flex; flex-direction: column; gap: 4px;
-  padding: 14px 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  cursor: pointer; margin: 0;
-  transition: border-color .2s, background .2s;
-  text-transform: none; letter-spacing: 0;
-  font-size: 15px; font-weight: 500; color: var(--text);
+  padding: 14px 16px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 3px;
+  cursor: pointer; margin: 0; transition: border-color .2s, background .2s;
+  text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 500; color: var(--text);
 }
-.time-option label .time-label-title {
-  font-size: 15px; font-weight: 500; color: var(--text);
-}
-.time-option label .time-label-sub {
-  font-size: 12px; color: var(--text2); font-weight: 400; letter-spacing: 0;
-}
-.time-option input[type=radio]:checked + label {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-}
-.time-option input[type=radio]:checked + label .time-label-title {
-  color: var(--accent);
-}
-.time-option label:hover {
-  border-color: rgba(255,255,255,0.15);
-}
+.time-option label .time-label-title { font-size: 15px; font-weight: 600; color: var(--text); }
+.time-option label .time-label-sub { font-size: 12px; color: var(--text2); font-weight: 400; letter-spacing: 0; }
+.time-option input[type=radio]:checked + label { border-color: var(--accent); background: var(--accent-dim); }
+.time-option input[type=radio]:checked + label .time-label-title { color: var(--accent); }
+.time-option input[type=radio]:checked + label .time-label-sub { color: rgba(243,146,0,0.7); }
+.time-option label:hover { border-color: rgba(255,255,255,0.15); }
 
 /* ── EMAIL CONSENT TOGGLE ── */
-.consent-options {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-}
+.consent-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .consent-option { position: relative; }
 .consent-option input[type=radio] { position: absolute; opacity: 0; width: 0; height: 0; }
 .consent-option label {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  cursor: pointer; margin: 0;
-  transition: border-color .2s, background .2s;
-  text-transform: none; letter-spacing: 0;
-  font-size: 14px; font-weight: 500; color: var(--text2);
+  padding: 12px 16px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 3px;
+  cursor: pointer; margin: 0; transition: border-color .2s, background .2s;
+  text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 500; color: var(--text2);
 }
-.consent-option input[type=radio]:checked + label {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-  color: var(--accent);
-}
+.consent-option input[type=radio]:checked + label { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
 .consent-option label:hover { border-color: rgba(255,255,255,0.15); color: var(--text); }
 
 /* ── AGREE ── */
@@ -276,24 +235,20 @@ select option { background: #1c1c1f; }
 }
 .agree input[type=checkbox] {
   width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; cursor: pointer;
-  accent-color: var(--accent); padding: 0;
-  appearance: auto; -webkit-appearance: checkbox;
+  accent-color: var(--accent); padding: 0; appearance: auto; -webkit-appearance: checkbox;
 }
-.agree-text { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.agree-text { font-size: 15px; color: var(--text2); line-height: 1.6; }
 .agree-text strong { color: var(--text); font-weight: 500; }
 
 /* ── NOTICE ── */
 .notice {
   display: flex; flex-direction: column; gap: 8px;
-  padding: 16px 18px;
-  background: var(--accent-dim);
-  border: 1px solid rgba(243,146,0,0.15);
-  border-radius: 3px;
-  margin-bottom: 28px;
+  padding: 16px 18px; background: var(--accent-dim);
+  border: 1px solid rgba(243,146,0,0.15); border-radius: 3px; margin-bottom: 28px;
 }
 .notice-item {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.55;
+  font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.6;
 }
 .notice-dot {
   width: 5px; height: 5px; border-radius: 50%;
@@ -305,11 +260,7 @@ select option { background: #1c1c1f; }
   transition: text-decoration-color .2s;
 }
 .notice-link:hover { text-decoration-color: var(--accent); }
-.field-hint {
-  font-size: 12px; color: #ffffff;
-  margin-top: 7px; line-height: 1.5;
-  padding-left: 2px;
-}
+.field-hint { font-size: 14px; color: #ffffff; margin-top: 7px; line-height: 1.5; padding-left: 2px; }
 
 /* ── SUBMIT ── */
 .submit-btn {
@@ -322,29 +273,19 @@ select option { background: #1c1c1f; }
 .submit-btn:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
 .submit-btn:active:not(:disabled) { transform: translateY(0); }
 .submit-btn:disabled { opacity: .35; cursor: not-allowed; }
-.submit-note { font-size: 12px; color: var(--text3); text-align: center; margin-top: 14px; line-height: 1.6; }
+.submit-note { font-size: 14px; color: var(--text3); text-align: center; margin-top: 14px; line-height: 1.6; }
 
 /* ── BENEFIT BOX ── */
 .benefit-box {
-  background: var(--surface);
-  border: 1px solid rgba(243,146,0,0.18);
-  border-radius: 3px;
-  padding: 16px 18px;
-  margin-bottom: 28px;
+  background: var(--surface); border: 1px solid rgba(243,146,0,0.18);
+  border-radius: 3px; padding: 16px 18px; margin-bottom: 28px;
 }
-.benefit-title {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 14px; font-weight: 500;
-}
-.benefit-item {
-  display: flex; gap: 12px; align-items: flex-start;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+.benefit-title { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; font-weight: 500; }
+.benefit-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .benefit-item:last-child { border-bottom: none; padding-bottom: 2px; }
-.benefit-icon { color: var(--accent); font-size: 10px; flex-shrink: 0; padding-top: 3px; }
-.benefit-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.benefit-sub { font-size: 12px; color: var(--text2); line-height: 1.5; }
+.benefit-icon { color: var(--accent); font-size: 11px; flex-shrink: 0; padding-top: 3px; }
+.benefit-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.benefit-sub { font-size: 13px; color: var(--text2); line-height: 1.5; }
 .benefit-tag {
   display: inline-block; font-size: 11px; padding: 1px 7px;
   background: rgba(243,146,0,0.12); border: 1px solid rgba(243,146,0,0.3);
@@ -402,7 +343,6 @@ select option { background: #1c1c1f; }
     <div class="left-bg"></div>
     <div class="deco-ring"></div>
 
-
     <div class="left-inner">
 
       <div class="left-tag">Blackmagic Design 실습형 체험 세미나</div>
@@ -410,7 +350,7 @@ select option { background: #1c1c1f; }
       <div class="left-eyebrow">Blackmagic</div>
       <h1 class="left-title">
         PYXIS <span class="left-title-models">6K · 12K</span>
-        <span class="sub">촬영부터 컬러까지</span>
+        <span class="sub">Blackmagic PYXIS로 촬영하고, DaVinci Resolve로 완성하다</span>
       </h1>
 
       <p class="left-desc">
@@ -422,9 +362,7 @@ select option { background: #1c1c1f; }
       <div class="meta-list">
         <div class="meta-row">
           <span class="meta-row-label">일자</span>
-          <span class="meta-row-value">
-            2026년 4월 7일 (화) · 8일 (수)
-          </span>
+          <span class="meta-row-value">2026년 4월 7일 (화) · 8일 (수)</span>
         </div>
         <div class="meta-row">
           <span class="meta-row-label">시간</span>
@@ -452,7 +390,7 @@ select option { background: #1c1c1f; }
         <div class="meta-row">
           <span class="meta-row-label">혜택</span>
           <span class="meta-row-value accent">
-            Blackmagic PYXIS 6K 현장 33% 할인 + 사은품
+            Blackmagic PYXIS 6K 현장 특가 + 사은품
             <small>Blackmagic PYXIS 12K 예약 할인 · 리뷰 시 CFexpress 증정</small>
           </span>
         </div>
@@ -461,7 +399,7 @@ select option { background: #1c1c1f; }
 
     <div class="left-footer">
       Blackmagic Design 공식 총판 · 하이픽셀플러스<br>
-      문의: hipixelplus@naver.com </span></a> / 031-450-3515
+      문의: hipixelplus@naver.com / 031-450-3515
     </div>
   </div>
 
@@ -477,7 +415,7 @@ select option { background: #1c1c1f; }
       <div class="notice">
         <div class="notice-item">
           <div class="notice-dot"></div>
-          <span>세미나 당일 직접 촬영한 BRAW 원본 영상은 <strong style="color:var(--accent)">Blackmagic Cloud</strong>를 통해 참가자 전원에게 제공됩니다.<br> 집에서도 DaVinci Resolve로 자유롭게 실습해 보세요!</span>
+          <span>세미나 당일 직접 촬영한 BRAW 원본 영상은 <strong style="color:var(--accent)">Blackmagic Cloud</strong>를 통해 참가자 전원에게 제공됩니다.<br>집에서도 DaVinci Resolve로 자유롭게 실습해 보세요!</span>
         </div>
         <div class="notice-item">
           <div class="notice-dot"></div>
@@ -495,7 +433,7 @@ select option { background: #1c1c1f; }
         <div class="benefit-item">
           <div class="benefit-icon">▶</div>
           <div>
-            <div class="benefit-name">Blackmagic PYXIS 6K 현장 특가 <span class="benefit-tag">33% 할인</span></div>
+            <div class="benefit-name">Blackmagic PYXIS 6K 현장 특가</div>
             <div class="benefit-sub">L마운트 / EF마운트 / PL마운트 선택</div>
           </div>
         </div>
@@ -522,7 +460,8 @@ select option { background: #1c1c1f; }
         </div>
         <div class="field">
           <label>전화번호 <span class="req">*</span></label>
-          <input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel" oninput="formatPhone(this)" maxlength="13">
+          <input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel"
+                 oninput="formatPhone(this)" maxlength="13">
         </div>
       </div>
 
@@ -538,19 +477,33 @@ select option { background: #1c1c1f; }
       </div>
 
       <div class="field">
-        <label>참가 시간 <span class="req">*</span></label>
+        <label>참가 일시 <span class="req">*</span></label>
         <div class="time-options">
           <div class="time-option">
-            <input type="radio" name="session" id="session-am" value="오전반 (10:00 – 13:00)">
-            <label for="session-am">
-              <span class="time-label-title">🌤 오전</span>
+            <input type="radio" name="session" id="session-tue-am" value="4월 7일 (화) 오전 10:00–13:00">
+            <label for="session-tue-am">
+              <span class="time-label-title">4월 7일 (화) 오전</span>
               <span class="time-label-sub">10:00 – 13:00</span>
             </label>
           </div>
           <div class="time-option">
-            <input type="radio" name="session" id="session-pm" value="오후반 (14:00 – 17:00)">
-            <label for="session-pm">
-              <span class="time-label-title">🌇 오후</span>
+            <input type="radio" name="session" id="session-tue-pm" value="4월 7일 (화) 오후 14:00–17:00">
+            <label for="session-tue-pm">
+              <span class="time-label-title">4월 7일 (화) 오후</span>
+              <span class="time-label-sub">14:00 – 17:00</span>
+            </label>
+          </div>
+          <div class="time-option">
+            <input type="radio" name="session" id="session-wed-am" value="4월 8일 (수) 오전 10:00–13:00">
+            <label for="session-wed-am">
+              <span class="time-label-title">4월 8일 (수) 오전</span>
+              <span class="time-label-sub">10:00 – 13:00</span>
+            </label>
+          </div>
+          <div class="time-option">
+            <input type="radio" name="session" id="session-wed-pm" value="4월 8일 (수) 오후 14:00–17:00">
+            <label for="session-wed-pm">
+              <span class="time-label-title">4월 8일 (수) 오후</span>
               <span class="time-label-sub">14:00 – 17:00</span>
             </label>
           </div>
@@ -569,9 +522,7 @@ select option { background: #1c1c1f; }
           </div>
           <div class="consent-option">
             <input type="radio" name="email-consent" id="consent-no" value="미동의">
-            <label for="consent-no">
-              아니요
-            </label>
+            <label for="consent-no">아니요</label>
           </div>
         </div>
       </div>
@@ -601,15 +552,15 @@ select option { background: #1c1c1f; }
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── Google Apps Script URL (교체 필요) ──
+<script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1q7_h_ffAAKak-sUmKqQdiEhw_lfuMoNeIePV74pIDPoqWraat2XB7U7s2a0OYiRn/exec';
 
+  // 전화번호 하이픈 자동 포맷: 010-0000-0000
   function formatPhone(el) {
     let v = el.value.replace(/\D/g, '').slice(0, 11);
-    if (v.length < 4) el.value = v;
+    if (v.length < 4)      el.value = v;
     else if (v.length < 8) el.value = v.slice(0,3) + '-' + v.slice(3);
-    else el.value = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7);
+    else                   el.value = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7);
   }
 
   function getRadioValue(name) {
@@ -618,7 +569,7 @@ select option { background: #1c1c1f; }
   }
 
   async function submitForm() {
-    const val = id => document.getElementById(id).value.trim();
+    const val     = id => document.getElementById(id).value.trim();
     const name    = val('f-name');
     const phone   = val('f-phone');
     const email   = val('f-email');
@@ -628,7 +579,10 @@ select option { background: #1c1c1f; }
     const agreed  = document.getElementById('f-agree').checked;
 
     // 필수 항목 검사
-    if (!name || !phone || !email || !company) { shake(); return; }
+    if (!name || !phone || !email || !company) {
+      shake();
+      return;
+    }
 
     if (!session) {
       const timeField = document.querySelector('.time-options');
@@ -640,7 +594,7 @@ select option { background: #1c1c1f; }
 
     if (!agreed) {
       document.querySelector('.agree').style.borderColor = 'rgba(240,80,64,0.5)';
-      setTimeout(() => document.querySelector('.agree').style.borderColor = '', 1500);
+      setTimeout(() => { document.querySelector('.agree').style.borderColor = ''; }, 1500);
       return;
     }
 
@@ -673,4 +627,10 @@ select option { background: #1c1c1f; }
     const form = document.getElementById('form-body');
     form.style.transition = 'transform .08s';
     form.style.transform = 'translateX(-6px)';
-    s
+    setTimeout(() => { form.style.transform = 'translateX(5px)';  }, 80);
+    setTimeout(() => { form.style.transform = 'translateX(-4px)'; }, 160);
+    setTimeout(() => { form.style.transform = 'translateX(0)';    }, 240);
+  }
+</script>
+</body>
+</html>
