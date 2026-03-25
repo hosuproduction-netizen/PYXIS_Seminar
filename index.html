@@ -374,8 +374,8 @@ select option { background: #1c1c1f; }
         <div class="meta-row">
           <span class="meta-row-label">장소</span>
           <span class="meta-row-value">
-            SLR렌트 2층 SLR STUDIO
-            <small>서울시 마포구 양화로10길 37, 에스엘알 빌딩</small>
+            SLR렌탈 합정점 호리존 스튜디오
+            <small>서울시 마포구 양화로10길 37, 에스엘알렌탈 빌딩 2F</small>
             <small>🚇 2·6호선 합정역 3번출구 도보 3분</small>
             <small>📞 1600-2470</small>
           </span>
@@ -559,7 +559,7 @@ select option { background: #1c1c1f; }
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1q7_h_ffAAKak-sUmKqQdiEhw_lfuMoNeIePV74pIDPoqWraat2XB7U7s2a0OYiRn/exec';
 
   // 전화번호 하이픈 자동 포맷: 010-0000-0000
@@ -585,11 +585,7 @@ select option { background: #1c1c1f; }
     const consent = getRadioValue('email-consent') || '미응답';
     const agreed  = document.getElementById('f-agree').checked;
 
-    // 필수 항목 검사
-    if (!name || !phone || !email || !company) {
-      shake();
-      return;
-    }
+    if (!name || !phone || !email || !company) { shake(); return; }
 
     if (!session) {
       const timeField = document.querySelector('.time-options');
@@ -634,4 +630,10 @@ select option { background: #1c1c1f; }
     const form = document.getElementById('form-body');
     form.style.transition = 'transform .08s';
     form.style.transform = 'translateX(-6px)';
-    setTimeout(() => {
+    setTimeout(() => { form.style.transform = 'translateX(5px)';  }, 80);
+    setTimeout(() => { form.style.transform = 'translateX(-4px)'; }, 160);
+    setTimeout(() => { form.style.transform = 'translateX(0)';    }, 240);
+  }
+</script>
+</body>
+</html>
