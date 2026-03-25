@@ -37,7 +37,6 @@ body::before {
   position: fixed; inset: 0; z-index: 0;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  opacity: 1;
 }
 
 .page {
@@ -71,15 +70,9 @@ body::before {
 .left-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(10,14,22,0) 0%,
-    rgba(10,14,22,0.6) 55%,
-    rgba(10,14,22,1) 80%
-  );
+  background: linear-gradient(to bottom, rgba(10,14,22,0) 0%, rgba(10,14,22,0.6) 55%, rgba(10,14,22,1) 80%);
 }
 .left > *:not(.left-bg):not(.deco-ring) { position: relative; z-index: 1; }
-
 .left-inner { display: flex; flex-direction: column; gap: 0; }
 
 .left-tag {
@@ -90,7 +83,7 @@ body::before {
 .left-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
 
 .left-eyebrow {
-  font-size: 25px; letter-spacing: 0px;
+  font-size: 25px; letter-spacing: 0;
   color: rgba(255,255,255,0.35); margin-bottom: 3px; font-weight: 400;
 }
 
@@ -104,17 +97,13 @@ body::before {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: clamp(13px, 1.3vw, 17px);
   color: var(--accent); display: block;
-  letter-spacing: 0px; margin-top: 14px; line-height: 1.5;
-  font-weight: 400;
+  letter-spacing: 0; margin-top: 14px; line-height: 1.5; font-weight: 400;
 }
 .left-title-models {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(64px, 6.5vw, 96px);
   color: #ffffff;
-  display: inline;
-  letter-spacing: 3px;
-  font-weight: 700;
-  margin-left: 6px;
+  display: inline; letter-spacing: 3px; font-weight: 700; margin-left: 6px;
 }
 
 .left-desc {
@@ -286,7 +275,7 @@ select option { background: #1c1c1f; }
 .benefit-icon { color: var(--accent); font-size: 11px; flex-shrink: 0; padding-top: 3px; }
 .benefit-name { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
 .benefit-sub { font-size: 13px; color: var(--text2); line-height: 1.5; }
-.benefit-item--raffle .benefit-name { color: var(--text); }
+.benefit-tag {
   display: inline-block; font-size: 11px; padding: 1px 7px;
   background: rgba(243,146,0,0.12); border: 1px solid rgba(243,146,0,0.3);
   color: var(--accent); border-radius: 2px; margin-left: 4px; font-weight: 600;
@@ -344,7 +333,6 @@ select option { background: #1c1c1f; }
     <div class="deco-ring"></div>
 
     <div class="left-inner">
-
       <div class="left-tag">Blackmagic Design 실습형 체험 세미나</div>
 
       <div class="left-eyebrow">Blackmagic</div>
@@ -467,8 +455,7 @@ select option { background: #1c1c1f; }
         </div>
         <div class="field">
           <label>전화번호 <span class="req">*</span></label>
-          <input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel"
-                 oninput="formatPhone(this)" maxlength="13">
+          <input type="tel" id="f-phone" placeholder="010-0000-0000" autocomplete="tel" oninput="formatPhone(this)" maxlength="13">
         </div>
       </div>
 
@@ -549,7 +536,7 @@ select option { background: #1c1c1f; }
       <p class="submit-note">수집된 정보는 세미나 운영 목적으로만 사용됩니다</p>
     </div>
 
-    <!-- SUCCESS -->
+    <!-- SUCCESS (숨김 상태, JS로만 표시) -->
     <div class="success" id="msg-success">
       <div class="success-icon">✓</div>
       <h3>신청이 완료되었습니다</h3>
@@ -562,7 +549,6 @@ select option { background: #1c1c1f; }
 <script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1q7_h_ffAAKak-sUmKqQdiEhw_lfuMoNeIePV74pIDPoqWraat2XB7U7s2a0OYiRn/exec';
 
-  // 전화번호 하이픈 자동 포맷: 010-0000-0000
   function formatPhone(el) {
     let v = el.value.replace(/\D/g, '').slice(0, 11);
     if (v.length < 4)      el.value = v;
@@ -571,12 +557,12 @@ select option { background: #1c1c1f; }
   }
 
   function getRadioValue(name) {
-    const checked = document.querySelector(`input[name="${name}"]:checked`);
+    const checked = document.querySelector('input[name="' + name + '"]:checked');
     return checked ? checked.value : '';
   }
 
   async function submitForm() {
-    const val     = id => document.getElementById(id).value.trim();
+    const val     = function(id) { return document.getElementById(id).value.trim(); };
     const name    = val('f-name');
     const phone   = val('f-phone');
     const email   = val('f-email');
@@ -585,23 +571,27 @@ select option { background: #1c1c1f; }
     const consent = getRadioValue('email-consent') || '미응답';
     const agreed  = document.getElementById('f-agree').checked;
 
-    if (!name || !phone || !email || !company) { shake(); return; }
+    if (!name || !phone || !email || !company) {
+      shake();
+      return;
+    }
 
     if (!session) {
-      const timeField = document.querySelector('.time-options');
+      var timeField = document.querySelector('.time-options');
       timeField.style.outline = '1px solid rgba(240,80,64,0.5)';
       timeField.style.borderRadius = '3px';
-      setTimeout(() => { timeField.style.outline = ''; }, 1500);
+      setTimeout(function() { timeField.style.outline = ''; }, 1500);
       return;
     }
 
     if (!agreed) {
-      document.querySelector('.agree').style.borderColor = 'rgba(240,80,64,0.5)';
-      setTimeout(() => { document.querySelector('.agree').style.borderColor = ''; }, 1500);
+      var agreeEl = document.querySelector('.agree');
+      agreeEl.style.borderColor = 'rgba(240,80,64,0.5)';
+      setTimeout(function() { agreeEl.style.borderColor = ''; }, 1500);
       return;
     }
 
-    const btn = document.getElementById('submit-btn');
+    var btn = document.getElementById('submit-btn');
     btn.disabled = true;
     btn.innerHTML = '<span style="opacity:.6">제출 중...</span>';
 
@@ -612,14 +602,14 @@ select option { background: #1c1c1f; }
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'submit',
-          name, phone, email, company, session,
-          emailConsent: consent,
+          name: name, phone: phone, email: email, company: company,
+          session: session, emailConsent: consent,
           timestamp: new Date().toLocaleString('ko-KR')
         })
       });
       document.getElementById('form-body').style.display = 'none';
       document.getElementById('msg-success').classList.add('show');
-    } catch (e) {
+    } catch(e) {
       alert('오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
       btn.disabled = false;
       btn.innerHTML = '신청 완료하기 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -627,12 +617,12 @@ select option { background: #1c1c1f; }
   }
 
   function shake() {
-    const form = document.getElementById('form-body');
+    var form = document.getElementById('form-body');
     form.style.transition = 'transform .08s';
     form.style.transform = 'translateX(-6px)';
-    setTimeout(() => { form.style.transform = 'translateX(5px)';  }, 80);
-    setTimeout(() => { form.style.transform = 'translateX(-4px)'; }, 160);
-    setTimeout(() => { form.style.transform = 'translateX(0)';    }, 240);
+    setTimeout(function() { form.style.transform = 'translateX(5px)';  }, 80);
+    setTimeout(function() { form.style.transform = 'translateX(-4px)'; }, 160);
+    setTimeout(function() { form.style.transform = 'translateX(0)';    }, 240);
   }
 </script>
 </body>
