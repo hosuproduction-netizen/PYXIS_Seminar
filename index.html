@@ -62,12 +62,10 @@ body::before {
 }
 .left-bg {
   position: absolute; inset: 0; z-index: 0;
-  /* PYXIS 제품 이미지와 유사한 스틸 블루-그레이 그라데이션 */
-  background:
-    radial-gradient(ellipse at 70% 25%, rgba(60,100,160,0.55) 0%, transparent 55%),
-    radial-gradient(ellipse at 15% 70%, rgba(30,60,110,0.35) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(20,30,55,0.6) 0%, transparent 80%),
-    linear-gradient(160deg, #0d1520 0%, #111923 40%, #0c0f14 100%);
+  background-image: url('pyxis-bg.jpg');  /* ← 파일명만 바꾸면 됨 */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.45;
 }
 .left-bg::after {
   content: '';
