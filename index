@@ -567,14 +567,14 @@ select option { background: #1c1c1f; }
           <div class="time-option">
             <input type="radio" name="session" id="session-am" value="오전반 (10:00 – 13:00)">
             <label for="session-am">
-              <span class="time-label-title">🌤 오전반</span>
+              <span class="time-label-title">🌤 오전</span>
               <span class="time-label-sub">10:00 – 13:00</span>
             </label>
           </div>
           <div class="time-option">
             <input type="radio" name="session" id="session-pm" value="오후반 (14:00 – 17:00)">
             <label for="session-pm">
-              <span class="time-label-title">🌇 오후반</span>
+              <span class="time-label-title">🌇 오후</span>
               <span class="time-label-sub">14:00 – 17:00</span>
             </label>
           </div>
@@ -627,7 +627,7 @@ select option { background: #1c1c1f; }
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Google Apps Script URL (교체 필요) ──
-  const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1q7_h_ffAAKak-sUmKqQdiEhw_lfuMoNeIePV74pIDPoqWraat2XB7U7s2a0OYiRn/exec';
 
   function formatPhone(el) {
     let v = el.value.replace(/\D/g, '').slice(0, 11);
