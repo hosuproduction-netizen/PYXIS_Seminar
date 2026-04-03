@@ -536,11 +536,14 @@ select option { background: #1c1c1f; }
         </label>
       </div>
 
-      <button class="submit-btn" id="submit-btn" onclick="submitForm()">
-        신청 완료하기
+      <button class="submit-btn" id="submit-btn" disabled>
+        접수가 마감되었습니다
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
-      <p class="submit-note">수집된 정보는 세미나 운영 목적으로만 사용됩니다</p>
+	  <p style="margin-top:12px; color:var(--accent); font-weight:500; text-align:center;">
+		성원에 힘입어 전 타임 마감되었습니다. 감사합니다! 🙏
+  </p>
+
     </div>
 
     <!-- SUCCESS (숨김 상태, JS로만 표시) -->
